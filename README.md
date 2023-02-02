@@ -1,9 +1,18 @@
 # search
 Bu repo içerisinde search.py isimli Facebook ve Instagram sitelerinde belirli anahtar kelimelerle yayınlanan postları google search aracılığıyla arayıp linklerini çeken, bunu bir veritabanına kaydederek güncelleme olduğunda bu linkleri mail olarak ileten kod dosyası, deneme olarak oluşturulmuş yalnızca ilk google search sayfasını içeren tire-social-media.db dosyası ve gereklilikleri içeren requirements.txt dosyası bulunmakta.
+
 search.py dosyası Chrome ile arama yaptığı için bilgisayarınızdaki Chrome sürümüne uygun chromedriver yoksa şu siteden https://sites.google.com/chromium.org/driver/downloads indirilmeli.
+
 Global verilmiş PATH değişkenine bu chromedriver'ın bilgisayarınızdaki yolu girilmeli.
+
 Yine global verilmiş conn değişkeninden bağlanılacak veritabanının ismini girebilirsiniz. Örnek: "deneme.db"
+
 Mainde bulunan keywords değişkeni google üzerinde aranmak istenen anahtar kelimeleri girmek içindir. Boşluk bırakmadan aralarına virgül koyarak anahtar kelime veya kelimeleri girebilirsiniz.
+
 time_limit değişkeni google search ayarlarında bulunan "son 1 sene" =y1, "son 1 hafta" =w1 gibi ayarlamaları yapmaya yarıyor fakat, direkt google search'ın kendisinden kaynaklı olarak, bu sonuçlar tarihleri çok düzgün filtreleyemiyor. Örneğin direk tarayıcı üzerinden arama yaptığınızda, filtresizken karşınıza çıkan 2021 tarihli gönderi, son 3 yıl olarak filtrelediğinizde karşınıza çıkmıyor. Ayrıca google aramada "recent" düzenlemesi bulunamadı.
+
 İslem fonksiyonunda güncellemeler veritabanına ekleniyor, bu fonksiyondan dönen güncellemelere göre ise send_mail fonksiyonu bu güncellemeleri mail olarak gönderiyor.
-Send_mail fonksiyonu içerisinde db_user değişkenine mail yollanmak için kullanılacak mail hesabının adresi, db_pass değişkenine bu mail adresinin şifresi, ve db_recv değişkenine bu mailin alıcısının mail adresi girilmeli. bodyList ve body değişkenleriyle gönderilecek mailin içeriği değiştirilebilir. Ayrıca 128. Satırda başlayan kısımda SMTP sunucusu revize edilmeli.
+
+Send_mail fonksiyonu içerisinde db_user değişkenine mail yollanmak için kullanılacak mail hesabının adresi, db_pass değişkenine bu mail adresinin şifresi, ve db_recv değişkenine bu mailin alıcısının mail adresi girilmeli. bodyList ve body değişkenleriyle gönderilecek mailin içeriği değiştirilebilir. 
+
+Ayrıca 128. Satırda başlayan kısımda SMTP sunucusu revize edilmeli.
